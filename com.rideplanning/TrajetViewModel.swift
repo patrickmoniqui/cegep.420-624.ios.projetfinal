@@ -14,12 +14,14 @@ class TrajetViewModel {
     var trajetId: Int
     var TrajetTitle: String
     var TrajetDesc: String?
+    var Creator: UserViewModel?
     var GpsPoints: [String]
     
     init(){
         self.trajetId = -1
         self.TrajetTitle = ""
         self.TrajetDesc = nil
+        self.Creator = nil
         self.GpsPoints = [String]()
     }
     
@@ -27,6 +29,7 @@ class TrajetViewModel {
         
         self.trajetId = json["TrajetId"].intValue
         self.TrajetTitle = json["Title"].stringValue
+        self.Creator = UserViewModel(json: json["Creator"])!
         
         self.GpsPoints = [String]()
         

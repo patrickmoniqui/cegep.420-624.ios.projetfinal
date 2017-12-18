@@ -14,11 +14,13 @@ class RideViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
+    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var mapKit: MKMapView!
 
     var rideId: Int? = nil
-    var ride : SingleRideViewModel?
+    var ride : RideViewModel?
     var rideService = RideService()
+    var userService = UserService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,14 @@ class RideViewController: UIViewController, MKMapViewDelegate {
     
     func LoadRide()
     {
+        var user = userService.GetLoggedUser { (_user) in
+            var username = _user
+            if(username.userId != self.ride?.Creator.userId)
+            {
+                self.btnEdit.isHidden = true
+            }
+        }
+        
         let myFormatter = DateFormatter()
         myFormatter.dateStyle = .full
         
@@ -47,7 +57,10 @@ class RideViewController: UIViewController, MKMapViewDelegate {
         lblTitle.text = (self.ride?.Title)! + " | " + dateFrom
         lblDesc.text = self.ride?.Description
         
-        LoadMap()
+        if(ride?.Trajet != nil)
+        {
+            LoadMap()
+        }
     }
     
     func LoadMap()
@@ -56,7 +69,7 @@ class RideViewController: UIViewController, MKMapViewDelegate {
         
         var gpsPoints: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
         
-        for point in (ride?.Trajet.GpsPoints)!
+        for point in (ride?.Trajet?.GpsPoints)!
         {
             var points = point.components(separatedBy: ",")
             
@@ -128,4 +141,16 @@ class RideViewController: UIViewController, MKMapViewDelegate {
         
         return renderer
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "RideEditSegue" {
+            let viewController : CreateEditRideViewController = segue.destination as! CreateEditRideViewController
+            viewController.editRideId = (sender as? Int!)
+        }
+    }
+    
+    @IBAction func btnEdit_Touch(_ sender: Any) {
+        performSegue(withIdentifier: "RideEditSegue", sender: self.ride?.RideId)
+    }
+    
 }

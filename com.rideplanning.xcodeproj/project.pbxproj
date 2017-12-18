@@ -20,12 +20,17 @@
 		5246FE651FC6A5B80047175D /* AuthentificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE641FC6A5B80047175D /* AuthentificationViewModel.swift */; };
 		5246FE761FC6AC780047175D /* AuthentificationEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE741FC6AC780047175D /* AuthentificationEntity+CoreDataClass.swift */; };
 		5246FE771FC6AC780047175D /* AuthentificationEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE751FC6AC780047175D /* AuthentificationEntity+CoreDataProperties.swift */; };
-		5246FE791FC6B1AC0047175D /* AlreadyLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE781FC6B1AC0047175D /* AlreadyLoggedViewController.swift */; };
 		5246FE7B1FC6B7110047175D /* RideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE7A1FC6B7110047175D /* RideViewController.swift */; };
 		5246FE7D1FC6B74B0047175D /* SingleRideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE7C1FC6B74B0047175D /* SingleRideViewModel.swift */; };
 		5246FE7F1FC6C2A90047175D /* TrajetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5246FE7E1FC6C2A90047175D /* TrajetViewModel.swift */; };
 		529546351FC55C4300CE2D3F /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529546341FC55C4300CE2D3F /* RideViewModel.swift */; };
 		5295463B1FC565DF00CE2D3F /* RideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5295463A1FC565DF00CE2D3F /* RideService.swift */; };
+		52A3C35F1FE65A270058C8A2 /* CreateEditRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C35E1FE65A270058C8A2 /* CreateEditRideViewController.swift */; };
+		52A3C3611FE65D970058C8A2 /* LevelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C3601FE65D970058C8A2 /* LevelService.swift */; };
+		52A3C3631FE65DC60058C8A2 /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C3621FE65DC60058C8A2 /* LevelViewModel.swift */; };
+		52A3C3651FE661940058C8A2 /* RideListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C3641FE661940058C8A2 /* RideListViewModel.swift */; };
+		52A3C3671FE663A60058C8A2 /* CreateRideVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C3661FE663A60058C8A2 /* CreateRideVIewModel.swift */; };
+		52A3C3691FE788A20058C8A2 /* TrajetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A3C3681FE788A20058C8A2 /* TrajetService.swift */; };
 		52B600B31FBF1C2F0054182C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B600B21FBF1C2F0054182C /* AppDelegate.swift */; };
 		52B600B51FBF1C2F0054182C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B600B41FBF1C2F0054182C /* ViewController.swift */; };
 		52B600B81FBF1C2F0054182C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52B600B61FBF1C2F0054182C /* Main.storyboard */; };
@@ -48,12 +53,17 @@
 		5246FE641FC6A5B80047175D /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
 		5246FE741FC6AC780047175D /* AuthentificationEntity+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AuthentificationEntity+CoreDataClass.swift"; path = "com.rideplanning/AuthentificationEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5246FE751FC6AC780047175D /* AuthentificationEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AuthentificationEntity+CoreDataProperties.swift"; path = "com.rideplanning/AuthentificationEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		5246FE781FC6B1AC0047175D /* AlreadyLoggedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlreadyLoggedViewController.swift; sourceTree = "<group>"; };
 		5246FE7A1FC6B7110047175D /* RideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideViewController.swift; sourceTree = "<group>"; };
 		5246FE7C1FC6B74B0047175D /* SingleRideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleRideViewModel.swift; sourceTree = "<group>"; };
 		5246FE7E1FC6C2A90047175D /* TrajetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrajetViewModel.swift; sourceTree = "<group>"; };
 		529546341FC55C4300CE2D3F /* RideViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
 		5295463A1FC565DF00CE2D3F /* RideService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideService.swift; sourceTree = "<group>"; };
+		52A3C35E1FE65A270058C8A2 /* CreateEditRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEditRideViewController.swift; sourceTree = "<group>"; };
+		52A3C3601FE65D970058C8A2 /* LevelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelService.swift; sourceTree = "<group>"; };
+		52A3C3621FE65DC60058C8A2 /* LevelViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
+		52A3C3641FE661940058C8A2 /* RideListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideListViewModel.swift; sourceTree = "<group>"; };
+		52A3C3661FE663A60058C8A2 /* CreateRideVIewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRideVIewModel.swift; sourceTree = "<group>"; };
+		52A3C3681FE788A20058C8A2 /* TrajetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrajetService.swift; sourceTree = "<group>"; };
 		52B600AF1FBF1C2F0054182C /* com.rideplanning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.rideplanning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B600B21FBF1C2F0054182C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52B600B41FBF1C2F0054182C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,10 +116,10 @@
 			children = (
 				52B600B41FBF1C2F0054182C /* ViewController.swift */,
 				5246FE581FC690E50047175D /* LoginViewController.swift */,
-				5246FE781FC6B1AC0047175D /* AlreadyLoggedViewController.swift */,
 				5246FE7A1FC6B7110047175D /* RideViewController.swift */,
 				5224DEC31FCE6ABC00141806 /* MyRidesViewController.swift */,
 				5224DEC71FCE76D900141806 /* ProfileViewController.swift */,
+				52A3C35E1FE65A270058C8A2 /* CreateEditRideViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -133,6 +143,9 @@
 				5246FE7E1FC6C2A90047175D /* TrajetViewModel.swift */,
 				5224DEC11FCE622500141806 /* TabBarViewController.swift */,
 				5224DEC51FCE6CEF00141806 /* UserViewModel.swift */,
+				52A3C3621FE65DC60058C8A2 /* LevelViewModel.swift */,
+				52A3C3641FE661940058C8A2 /* RideListViewModel.swift */,
+				52A3C3661FE663A60058C8A2 /* CreateRideVIewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -142,6 +155,8 @@
 			children = (
 				5295463A1FC565DF00CE2D3F /* RideService.swift */,
 				5246FE5A1FC695FC0047175D /* UserService.swift */,
+				52A3C3601FE65D970058C8A2 /* LevelService.swift */,
+				52A3C3681FE788A20058C8A2 /* TrajetService.swift */,
 			);
 			name = DAL;
 			sourceTree = "<group>";
@@ -283,12 +298,16 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-com.rideplanning/Pods-com.rideplanning-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireSwiftyJSON/AlamofireSwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireSwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,13 +341,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52A3C35F1FE65A270058C8A2 /* CreateEditRideViewController.swift in Sources */,
 				5224DEC41FCE6ABC00141806 /* MyRidesViewController.swift in Sources */,
 				5224DEC21FCE622500141806 /* TabBarViewController.swift in Sources */,
+				52A3C3671FE663A60058C8A2 /* CreateRideVIewModel.swift in Sources */,
 				5246FE5E1FC6A3380047175D /* com.rideplanning.xcdatamodeld in Sources */,
-				5246FE791FC6B1AC0047175D /* AlreadyLoggedViewController.swift in Sources */,
 				5246FE7D1FC6B74B0047175D /* SingleRideViewModel.swift in Sources */,
 				5246FE7B1FC6B7110047175D /* RideViewController.swift in Sources */,
+				52A3C3611FE65D970058C8A2 /* LevelService.swift in Sources */,
 				5246FE7F1FC6C2A90047175D /* TrajetViewModel.swift in Sources */,
+				52A3C3691FE788A20058C8A2 /* TrajetService.swift in Sources */,
 				5224DEC61FCE6CEF00141806 /* UserViewModel.swift in Sources */,
 				5246FE5B1FC695FC0047175D /* UserService.swift in Sources */,
 				5224DEC81FCE76D900141806 /* ProfileViewController.swift in Sources */,
@@ -339,7 +361,9 @@
 				52B600B31FBF1C2F0054182C /* AppDelegate.swift in Sources */,
 				5246FE651FC6A5B80047175D /* AuthentificationViewModel.swift in Sources */,
 				5246FE761FC6AC780047175D /* AuthentificationEntity+CoreDataClass.swift in Sources */,
+				52A3C3631FE65DC60058C8A2 /* LevelViewModel.swift in Sources */,
 				5246FE561FC6882A0047175D /* DateHelpers.swift in Sources */,
+				52A3C3651FE661940058C8A2 /* RideListViewModel.swift in Sources */,
 				529546351FC55C4300CE2D3F /* RideViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

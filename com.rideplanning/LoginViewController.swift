@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     var userService: UserService = UserService()
     
     override func viewDidLoad() {
+        self.lblErr.text = ""
+        
         super.viewDidLoad()
     }
     
@@ -102,7 +104,12 @@ class LoginViewController: UIViewController {
                 
                 if(token != nil)
                 {
+                    self.lblErr.text = ""
                     self.performSegue(withIdentifier: "MainViewSegue", sender: self)
+                }
+                else
+                {
+                    self.lblErr.text = "Invalid credentials."
                 }
             })
         }

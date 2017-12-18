@@ -12,6 +12,8 @@ class ProfileViewController: UIViewController {
     let userService = UserService()
     
     @IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var lblDesc: UILabel!
+    
     @IBOutlet weak var btnLogoff: UIButton!
 
     override func viewDidLoad() {
@@ -26,6 +28,7 @@ class ProfileViewController: UIViewController {
     func Load(user: UserViewModel)
     {
         lblUsername.text = user.username
+        lblDesc.text = user.description
     }
     
     override func viewDidAppear(_ animated: Bool)

@@ -12,8 +12,70 @@ import Alamofire
 
 class RideService {
     
-    func GetRideList( completionHandler: @escaping ((Array<RideViewModel>) -> Void) ){
-        var rides = [RideViewModel]()
+    func CreateRude(ride: CreateRideViewModel,  completionHandler: @escaping ((Bool) -> Void) ){
+        let userService = UserService()
+        var auth = userService.GetToken()
+        var token = auth?.Token
+        
+        let url = URL(string: "http://riderqc-api.azurewebsites.net/ride")
+
+        var request = URLRequest(url: url!)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer " + token!, forHTTPHeaderField: "Authorization")
+        let data = (ride.toJson().data(using: .utf8))! as Data
+        request.httpBody = data
+        
+        print(request)
+        
+        print("body: " + ride.toJson())
+        
+        Alamofire.request(request).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success(let id):
+                completionHandler(true)
+            case .failure(let error):
+                print(error)
+                completionHandler(false)
+            }
+        }
+    }
+    
+    func EditRide(rideId: Int, ride: CreateRideViewModel,  completionHandler: @escaping ((Bool) -> Void) ){
+        let userService = UserService()
+        var auth = userService.GetToken()
+        var token = auth?.Token
+        
+        let url = URL(string: "http://riderqc-api.azurewebsites.net/ride/" + String(rideId))
+        
+        var request = URLRequest(url: url!)
+        request.httpMethod = HTTPMethod.put.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer " + token!, forHTTPHeaderField: "Authorization")
+        let data = (ride.toJson().data(using: .utf8))! as Data
+        request.httpBody = data
+        
+        print(request)
+        
+        print("body: " + ride.toJson())
+        
+        Alamofire.request(request).responseJSON { (response) in
+            print(response)
+            switch response.result {
+            case .success(let id):
+                completionHandler(true)
+            case .failure(let error):
+                print(error)
+                completionHandler(false)
+            }
+        }
+    }
+
+
+    
+    func GetRideList( completionHandler: @escaping ((Array<RideListViewModel>) -> Void) ){
+        var rides = [RideListViewModel]()
         
          let url = URL(string: "http://riderqc-api.azurewebsites.net/ride/list")
             Alamofire.request(url!, method: .get).validate().responseJSON { response in
@@ -21,7 +83,7 @@ class RideService {
             case .success(let value):
                 let _json = JSON(value)
                 for ride in _json.arrayValue {
-                    let _ride = RideViewModel(json: ride)
+                    let _ride = RideListViewModel(json: ride)
                     rides.append(_ride!)
                 }
                 completionHandler(rides)
@@ -31,8 +93,8 @@ class RideService {
         }
     }
     
-    func GetMyRideList(username: String, completionHandler: @escaping ((Array<RideViewModel>) -> Void) ){
-        var rides = [RideViewModel]()
+    func GetMyRideList(username: String, completionHandler: @escaping ((Array<RideListViewModel>) -> Void) ){
+        var rides = [RideListViewModel]()
         
         let url = URL(string: "http://riderqc-api.azurewebsites.net/ride/myrides?username=" + username)
         Alamofire.request(url!, method: .get).validate().responseJSON { response in
@@ -40,7 +102,7 @@ class RideService {
             case .success(let value):
                 let _json = JSON(value)
                 for ride in _json.arrayValue {
-                    let _ride = RideViewModel(json: ride)
+                    let _ride = RideListViewModel(json: ride)
                     rides.append(_ride!)
                 }
                 completionHandler(rides)
@@ -50,14 +112,14 @@ class RideService {
         }
     }
     
-    func GetRideById(rideId: Int,  completionHandler: @escaping ((SingleRideViewModel?) -> Void) ){
+    func GetRideById(rideId: Int,  completionHandler: @escaping ((RideViewModel?) -> Void) ){
         
         let url = URL(string: "http://riderqc-api.azurewebsites.net/ride/" + String(rideId))
         Alamofire.request(url!, method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let _json = JSON(value)
-                let _ride = SingleRideViewModel(json: _json)
+                let _ride = RideViewModel(json: _json)
                 completionHandler(_ride ?? nil)
             case .failure(let error):
                 completionHandler(nil)

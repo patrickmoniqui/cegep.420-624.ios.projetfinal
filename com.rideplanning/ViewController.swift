@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableRides: UITableView!
 
-    var rides: [RideViewModel] = []
+    var rides: [RideListViewModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = rides[indexPath.row].Title + " | " + String(describing: rides[indexPath.row].DateDepart)
+        cell.textLabel?.text = rides[indexPath.row].Title + " | " + rides[indexPath.row].DateDebutString
         cell.detailTextLabel?.text = rides[indexPath.row].Description
         cell.accessoryType = .disclosureIndicator
         

@@ -8,4 +8,6 @@ target 'com.rideplanning' do
 pod 'AlamofireSwiftyJSON'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'DropDown'
+pod 'DatePickerDialog'
 end
