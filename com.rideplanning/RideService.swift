@@ -14,8 +14,8 @@ class RideService {
     
     func CreateRude(ride: CreateRideViewModel,  completionHandler: @escaping ((Bool) -> Void) ){
         let userService = UserService()
-        var auth = userService.GetToken()
-        var token = auth?.Token
+        let auth = userService.GetToken()
+        let token = auth?.Token
         
         let url = URL(string: "http://riderqc-api.azurewebsites.net/ride")
 
@@ -44,8 +44,8 @@ class RideService {
     
     func EditRide(rideId: Int, ride: CreateRideViewModel,  completionHandler: @escaping ((Bool) -> Void) ){
         let userService = UserService()
-        var auth = userService.GetToken()
-        var token = auth?.Token
+        let auth = userService.GetToken()
+        let token = auth?.Token
         
         let url = URL(string: "http://riderqc-api.azurewebsites.net/ride/" + String(rideId))
         
@@ -60,10 +60,10 @@ class RideService {
         
         print("body: " + ride.toJson())
         
-        Alamofire.request(request).responseJSON { (response) in
+        Alamofire.request(request).responseString { (response) in
             print(response)
             switch response.result {
-            case .success(let id):
+            case .success(let _):
                 completionHandler(true)
             case .failure(let error):
                 print(error)

@@ -12,10 +12,13 @@ import GoogleMaps
 
 class RideViewController: UIViewController, MKMapViewDelegate {
     
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDesc: UILabel!
-    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var lblTitle: UITextField!
+    @IBOutlet weak var lblDesc: UITextField!
+    @IBOutlet weak var lblLevel: UITextField!
+    @IBOutlet weak var lblCreator: UITextField!
+    @IBOutlet weak var lblDates: UITextField!
     @IBOutlet weak var mapKit: MKMapView!
+    @IBOutlet weak var btnEdit: UIBarButtonItem!
 
     var rideId: Int? = nil
     var ride : RideViewModel?
@@ -41,21 +44,19 @@ class RideViewController: UIViewController, MKMapViewDelegate {
     
     func LoadRide()
     {
-        var user = userService.GetLoggedUser { (_user) in
-            var username = _user
+        userService.GetLoggedUser { (_user) in
+            let username = _user
             if(username.userId != self.ride?.Creator.userId)
             {
-                self.btnEdit.isHidden = true
+                self.btnEdit.isEnabled = false
             }
         }
         
-        let myFormatter = DateFormatter()
-        myFormatter.dateStyle = .full
-        
-        let dateFrom = myFormatter.string(from: (self.ride?.DateDepart)!)
-        
-        lblTitle.text = (self.ride?.Title)! + " | " + dateFrom
+        lblTitle.text = (self.ride?.Title)!
         lblDesc.text = self.ride?.Description
+        lblLevel.text = self.ride?.Level?.name
+        lblCreator.text = self.ride?.Creator.username
+        lblDates.text = (self.ride?.DateDebutString)! + " to " + (self.ride?.DateFinString)!
         
         if(ride?.Trajet != nil)
         {
@@ -128,9 +129,6 @@ class RideViewController: UIViewController, MKMapViewDelegate {
             
             let route = response.routes[0]
             self.mapKit.add((route.polyline), level: MKOverlayLevel.aboveRoads)
-            
-            let rect = route.polyline.boundingMapRect
-            self.mapKit.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
     }
     

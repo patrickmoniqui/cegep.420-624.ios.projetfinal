@@ -17,12 +17,12 @@ class RideViewModel {
     var Description: String
     
     var DateDepart: Date
-    var DateFinString: String {
+    var DateDebutString: String {
         get { return DateHelpers.dateToString(date: self.DateDepart) }
     }
     
     var DateFin: Date
-    var DateDebutString: String {
+    var DateFinString: String {
         get { return DateHelpers.dateToString(date: self.DateFin) }
     }
     

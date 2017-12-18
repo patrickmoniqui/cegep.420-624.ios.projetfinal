@@ -15,7 +15,6 @@ class CreateEditRideViewController: UIViewController {
     @IBOutlet weak var txtDescription: UITextField!
     @IBOutlet weak var btnChooseLevel: UIButton!
     @IBOutlet weak var btnChooseTrajet: UIButton!
-    @IBOutlet weak var btnCreateTrajet: UIButton!
     @IBOutlet weak var btnChooseStartDate: UIButton!
     @IBOutlet weak var pickerStartTime: UIDatePicker!
     @IBOutlet weak var btnChooseFinishDate: UIButton!
@@ -40,6 +39,8 @@ class CreateEditRideViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.lblError.text = ""
         
         if(editRideId != nil)
         {
@@ -160,12 +161,6 @@ class CreateEditRideViewController: UIViewController {
                 }
             }
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            
-            self.btnChooseStartDate.setTitle(dateFormatter.string(from: (self.editRide?.DateDepart)!), for: UIControlState.normal)
-            self.btnChooseFinishDate.setTitle(dateFormatter.string(from: (self.editRide?.DateFin)!), for: UIControlState.normal)
-            
             self.pickerStartTime.date = (self.editRide?.DateDepart)!
             self.pickerFinishTime.date = (self.editRide?.DateFin)!
         }
@@ -178,6 +173,9 @@ class CreateEditRideViewController: UIViewController {
         
         self.ride.Title = txtTitle.text!
         self.ride.Description = txtDescription.text!
+        
+        self.ride.DateDepart = pickerStartTime.date
+        self.ride.DateFin = pickerFinishTime.date
         
         // Title validation
         if((self.ride.Title.characters.count) <= 0)
@@ -263,7 +261,7 @@ class CreateEditRideViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
                 
                 //redirect to ride list
-                self.performSegue(withIdentifier: "SearchRideViewSegue", sender: self)
+                self.performSegue(withIdentifier: "SearchRideSegue", sender: self)
             }
             else
             {
@@ -283,51 +281,6 @@ class CreateEditRideViewController: UIViewController {
     
     @IBAction func btnChooseTrajet_Touch(_ sender: Any) {
         dropDownTrajet.show()
-    }
-    
-    
-    @IBAction func btnChooseStartDate_Touch(_ sender: Any) {
-        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-            (date) -> Void in
-            if let dt = date {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                self.btnChooseStartDate.setTitle(formatter.string(from: dt), for: UIControlState.normal)
-                
-                if(self.ride.DateDepart == nil)
-                {
-                    self.ride.DateDepart = Date()
-                }
-                
-                self.ride.DateDepart = DateHelpers.setDateOfDate(date: self.ride.DateDepart!, newDate: dt)
-            }
-            else
-            {
-                self.btnChooseStartDate.setTitle("Choose date", for: UIControlState.normal)
-            }
-        }
-    }
-    
-    @IBAction func btnChooseFinishDate_Touch(_ sender: Any) {
-        DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
-            (date) -> Void in
-            if let dt = date {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                self.btnChooseFinishDate.setTitle(formatter.string(from: dt), for: UIControlState.normal)
-                
-                if(self.ride.DateFin == nil)
-                {
-                    self.ride.DateFin = Date()
-                }
-                
-                self.ride.DateFin = DateHelpers.setDateOfDate(date: self.ride.DateFin!, newDate: dt)
-            }
-            else
-            {
-                self.btnChooseFinishDate.setTitle("Choose date", for: UIControlState.normal)
-            }
-        }
     }
 
     @IBAction func btnCreateRide_Touch(_ sender: Any) {

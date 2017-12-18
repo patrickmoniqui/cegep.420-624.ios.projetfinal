@@ -41,7 +41,7 @@ class MyRidesViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
-        cell.textLabel?.text = rides[indexPath.row].Title + " | " + rides[indexPath.row].DateFinString
+        cell.textLabel?.text = rides[indexPath.row].Title + " | " + rides[indexPath.row].DateDebutString
         cell.detailTextLabel?.text = rides[indexPath.row].Description
         cell.accessoryType = .disclosureIndicator
         
